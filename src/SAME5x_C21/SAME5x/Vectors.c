@@ -27,7 +27,11 @@
  *
  */
 
+#if defined(__SAME54P20A__)
 #include "same54.h"
+#elif defined(__SAME51J20A__)
+#include "same51.h"
+#endif
 #include <Core.h>
 
 // Symbols defined by the linker script

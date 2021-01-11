@@ -41,7 +41,7 @@
   #include "same54n20a.h"
 #elif defined(__SAME54P19A__) || defined(__ATSAME54P19A__)
   #include "same54p19a.h"
-#elif defined(__SAME54P20A__) || defined(__ATSAME54P20A__)
+#elif defined(__SAME54P20A__) || defined(__ATSAME54P20A__) || defined(__ATSAME51J20A__)
   #include "same54p20a.h"
 #else
   #error Library does not support the specified device.
