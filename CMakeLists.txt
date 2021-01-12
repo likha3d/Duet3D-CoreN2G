@@ -37,8 +37,6 @@ set(SRCS
     "src/Cache.cpp"
     "src/Print.cpp"
     "src/CoreIO.cpp"
-    "src/atmel/SAME54_DFP/1.1.134/gcc/gcc/startup_same54.c"
-    "src/atmel/SAME54_DFP/1.1.134/gcc/system_same54.c"
     "src/Stream.cpp"
     "src/CanDevice.cpp"
 )
@@ -46,7 +44,6 @@ set(SRCS
 set(INCLUDE_DIRS
     "src"
     "src/SAME5x_C21/SAME5x/hal/utils/include"
-    "src/atmel/SAME54_DFP/1.1.134/include"
     "src/arm/CMSIS/5.4.0/CMSIS/Core/Include"
     "src/SAME5x_C21"
     "src/SAME5x_C21/SAME5x"
@@ -57,9 +54,28 @@ set(INCLUDE_DIRS
     "src/arm/CMSIS/5.4.0/CMSIS/Core_A/Include"
 )
 
+if (BOARD STREQUAL "Duet3Mini")
+    list(APPEND SRCS 
+        "src/atmel/SAME54_DFP/1.1.134/gcc/gcc/startup_same54.c"
+        "src/atmel/SAME54_DFP/1.1.134/gcc/system_same54.c"
+    )
+    list(APPEND INCLUDE_DIRS
+        "src/atmel/SAME54_DFP/1.1.134/include"
+    )
+elseif (BOARD STREQUAL "LunaboardMCU")
+    list(APPEND SRCS 
+        "src/atmel/SAME51_DFP/1.1.139/gcc/gcc/startup_same51.c"
+        "src/atmel/SAME51_DFP/1.1.139/gcc/system_same51.c"
+    )
+    list(APPEND INCLUDE_DIRS
+        "src/atmel/SAME51_DFP/1.1.139/include"
+    )
+endif()
+
 add_library(CoreNG ${SRCS})
 target_include_directories(CoreNG PUBLIC ${INCLUDE_DIRS})
 
+# target_link_libraries(CoreNG INTERFACE "-T ${CMAKE_SOURCE_DIR}/src/Hardware/SAME5x/same54p20a_flash_16k_bootloader.ld")
 target_link_libraries(CoreNG INTERFACE "-T ${CMAKE_SOURCE_DIR}/src/Hardware/SAME5x/same54p20a_flash_16k_bootloader.ld")
 
 target_compile_definitions(CoreNG PRIVATE "-DUDD_ENABLE" "-DUDD_NO_SLEEP_MGR")

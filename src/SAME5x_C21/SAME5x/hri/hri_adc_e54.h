@@ -31,7 +31,9 @@
  *
  */
 
-#ifdef _SAME54_ADC_COMPONENT_
+
+#if defined(_SAME54_ADC_COMPONENT_) || defined(_SAME51_ADC_COMPONENT_)	// dc42 same54 and same51 versions were identical except for this line and GMAC-related functions
+
 #ifndef _HRI_ADC_E54_H_INCLUDED_
 #define _HRI_ADC_E54_H_INCLUDED_
 

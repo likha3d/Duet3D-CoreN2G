@@ -7,9 +7,10 @@
 
 #include "Interrupts.h"
 
-#if SAME5x
 #include <hri_gclk_e54.h>
 constexpr unsigned int ExintGclkNum = GclkNum120MHz;
+
+#if SAME5x
 #elif SAMC21
 #include <hri_gclk_c21.h>
 constexpr unsigned int ExintGclkNum = GclkNum48MHz;

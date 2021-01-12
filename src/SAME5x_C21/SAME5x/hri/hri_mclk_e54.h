@@ -30,7 +30,7 @@
  * \asf_license_stop
  *
  */
-
+#define _SAME51_MCLK_COMPONENT_
 //#ifdef _SAME54_MCLK_COMPONENT_
 #if defined(_SAME54_MCLK_COMPONENT_) || defined(_SAME51_MCLK_COMPONENT_)	// dc42 same54 and same51 versions were identical except for this line and GMAC-related functions
 #ifndef _HRI_MCLK_E54_H_INCLUDED_

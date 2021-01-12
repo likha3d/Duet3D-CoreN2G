@@ -5,7 +5,7 @@
  *      Author: David
  */
 
-#if SUPPORT_USB
+#ifdef SUPPORT_USB
 
 #include "SerialCDC.h"
 

@@ -31,7 +31,7 @@
  *
  */
 
-#ifdef _SAME54_USB_COMPONENT_
+#if defined(_SAME54_USB_COMPONENT_) || defined(_SAME51_USB_COMPONENT_)	// dc42 same54 and same51 versions were identical except for this line and GMAC-related functions
 #ifndef _HRI_USB_E54_H_INCLUDED_
 #define _HRI_USB_E54_H_INCLUDED_
 

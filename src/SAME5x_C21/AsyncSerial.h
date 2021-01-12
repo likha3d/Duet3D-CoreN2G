@@ -31,6 +31,9 @@ public:
 
 	AsyncSerial(uint8_t sercomNum, uint8_t rxp, size_t numTxSlots, size_t numRxSlots, OnBeginFn p_onBegin, OnEndFn p_onEnd) noexcept;
 
+    void Start() const noexcept {}
+    bool IsConnected() const noexcept { return true; }
+
 	// Overridden virtual functions
 	int available() noexcept override;
 	int read() noexcept override;
