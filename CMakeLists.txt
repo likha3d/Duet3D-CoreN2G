@@ -75,7 +75,6 @@ endif()
 add_library(CoreNG ${SRCS})
 target_include_directories(CoreNG PUBLIC ${INCLUDE_DIRS})
 
-# target_link_libraries(CoreNG INTERFACE "-T ${CMAKE_SOURCE_DIR}/src/Hardware/SAME5x/same54p20a_flash_16k_bootloader.ld")
 target_link_libraries(CoreNG INTERFACE "-T ${CMAKE_SOURCE_DIR}/src/Hardware/SAME5x/same54p20a_flash_16k_bootloader.ld")
 
 target_compile_definitions(CoreNG PRIVATE "-DUDD_ENABLE" "-DUDD_NO_SLEEP_MGR")

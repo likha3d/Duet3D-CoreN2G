@@ -38,9 +38,9 @@
 #include <CoreIO.h>
 
 // Define which SDHC controller we are using
-// Sdhc* const hw = SDHC1;
-// constexpr IRQn SDHC_IRQn = SDHC1_IRQn;
-// #define SDHC_ISR	SDHC1_Handler
+Sdhc* const hw = SDHC1;
+constexpr IRQn SDHC_IRQn = SDHC1_IRQn;
+#define SDHC_ISR	SDHC1_Handler
 
 #define HSMCI_SLOT_0_SIZE 		4
 #define CONF_SDHC_CLK_GEN_SEL	0
