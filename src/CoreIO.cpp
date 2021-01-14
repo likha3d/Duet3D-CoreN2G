@@ -472,7 +472,10 @@ void EnableTcClock(unsigned int tcNumber, unsigned int gclkNum) noexcept
 	{
 		TC0_GCLK_ID, TC1_GCLK_ID, TC2_GCLK_ID, TC3_GCLK_ID, TC4_GCLK_ID,
 # if SAME5x
-		// TC5_GCLK_ID, TC6_GCLK_ID, TC7_GCLK_ID
+		TC5_GCLK_ID
+#if defined(TC6) && defined(TC7)
+		, TC6_GCLK_ID, TC7_GCLK_ID
+#endif
 # endif
 	};
 

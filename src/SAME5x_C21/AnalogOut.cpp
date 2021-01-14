@@ -66,7 +66,9 @@ namespace AnalogOut
 		{
 			TC0, TC1, TC2, TC3, TC4,
 #if SAME5x
-			// TC5, TC6, TC7
+#if defined(TC6) && defined(TC7)
+			TC5, TC6, TC7
+#endif
 #endif
 		};
 		static uint16_t tcFreq[ARRAY_SIZE(TcDevices)] = { 0 };
